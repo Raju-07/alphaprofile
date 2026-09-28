@@ -1,14 +1,31 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel='icon' type="image/svg+xml" href="{% static 'static/final-assests/AlphaProfile_Perfect_SVG_Assets/03_alphaprofile-logo-gradient.svg' %}">
+
 </head>
 <body>
     <h2>
         Hello,World!
     </h2>
+
+<h3>
+    <a href="{% url 'accounts:register' %}">
+        create new account
+    </a>
+</h3>
+
+<h3>
+    <a href="{% url 'accounts:login' %}">
+        <p title='click on this to login in your account'> login </p>
+    </a>
+</h3> 
+
     <h4>{{ msg }}</h4>
 </body>
 </html>
