@@ -6,3 +6,6 @@ def login(request):
 
 def register(request):
     return render(request,'accounts/register.html')
+
+def forget_password(request):
+    return render(request,'accounts/forget_password.html') 
