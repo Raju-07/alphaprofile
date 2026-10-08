@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # User application
     'accounts',
+    'portfolio',
 ]
 
 MIDDLEWARE = [
@@ -114,15 +115,17 @@ AUTH_PASSWORD_VALIDATORS = [
 # Authentication Management
 AUTH_USER_MODEL = "accounts.User"
 
+#Login URLS
+LOGIN_REDIRECT_URL = "portfolio:dashboard"
+LOGIN_URL = "accounts:login"
+LOGOUT_REDIRECT_URL = "accounts:login"
+
 # Internationalization
 # https://docs.djangoproject.com/en/6.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_TZ = True
 
 
