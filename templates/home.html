@@ -10,6 +10,25 @@
 
 </head>
 <body>
+
+    {% if user.is_authenticated %}
+    <h2>Welcome, {{ user.username }}!</h2>
+    <p>You are logged in.</p>
+
+    <a href="{% url 'portfolio:dashboard' %}">Go to Dashboard</a>
+
+    <form method="post" action="{% url 'accounts:logout' %}">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+{% else %}
+    <h2>Welcome, guest!</h2>
+    <p>You are not logged in.</p>
+
+    <a href="{% url 'accounts:login' %}">Login</a>
+    <a href="{% url 'accounts:register' %}">Register</a>
+{% endif %}
+
     <h1 style={color:"#79191900"}> This is landing page </h1>
     <h2>
         Hello,World!
