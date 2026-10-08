@@ -24,4 +24,6 @@ urlpatterns = [
 
     #namespace
     path("auth/", include(("accounts.urls", "accounts"), namespace="accounts")),
+    path("dashboard/",include(("portfolio.urls","portfolio"),namespace="portfolio")),
+
 ]
