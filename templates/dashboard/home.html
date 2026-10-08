@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+<h3 style={"color":"#830b0b"}> This page is going to act as Dashboard for the profile </h3>
+
+<p> without if condition data </p>
+<h2> {{user}} </h2>
+<p> username is : {{user.username}} </p>
+{% if user.is_superuser %}
+    <h2> i've <b>useruser </b> account </h2>
+{% endif %}
+
+<h3>
+
+<form method = "post" action= {% url "accounts:logout" %}> 
+    {% csrf_token %}
+    <button type="submit">logout </button>
+</form>
+</body>
+</html>
