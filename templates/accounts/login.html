@@ -3,10 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login page</title>
+    <title>Login</title>
 </head>
 <body>
-    <h1> this page is for login screen </h1>
-    <a href = {% url "accounts:forget_password" %}>forget password</a>
+    <h1>Login</h1>
+
+    {% if form.errors %}
+        <p>Your username and password did not match. Please try again.</p>
+    {% endif %}
+
+    {% if next %}
+        {% if user.is_authenticated %}
+            <p>You do not have permission to access that page.</p>
+        {% else %}
+            <p>Please log in to continue.</p>
+        {% endif %}
+    {% endif %}
+
+    <form method="post" action="{% url 'accounts:login' %}">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <input type="hidden" name="next" value="{{ next }}">
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p>
+        <a href="{% url 'accounts:register' %}">Create an account</a>
+    </p>
+
+    <p>
+        <a href="{% url 'accounts:forget_password' %}">Forgot your password?</a>
+    </p>
 </body>
 </html>
